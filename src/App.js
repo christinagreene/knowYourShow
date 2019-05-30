@@ -14,19 +14,24 @@ class App extends Component {
     }
   } // end of constructor
 
-
-
-
-// TO DO LIST:
-// 1. find a way to save user input in userInput
-// 2. hook up axios request to submit function (so that it doesn't happenon page load but happens on button press)
-// 3. retreive info from data list to display on page.
-
-
-
-
   // once everything is mounted to the page, the following will occur:
   componentDidMount() {
+    
+  } // end of componentDidMount()
+
+  handleChange = (event) => {
+    // console.log(event.target.value);
+    this.setState({
+      userInput: event.target.value,
+    })
+  } // end of handleChange
+
+  // on click, do the following:
+  getTvData = (event) => {
+    event.preventDefault();
+    console.log(this.state.userInput);
+
+    // create variable to save URL info
     const url = `http://api.tvmaze.com/singlesearch/shows?q=${this.state.userInput}`;
 
     // making the API call to the site
@@ -34,22 +39,20 @@ class App extends Component {
       method: 'GET',
       url: url,
       dataResponse: 'json',
-      // parameters: {
-      //   q: 'friends',
-      //   format: 'json',
-      // }
 
-    // Once the data has been retrieved, save it as _______.
+      // Once the data has been retrieved(the then method), save it as response
     }).then(response => {
-      console.log(response);
+      // have the response only show the data value
       response = response.data
+      console.log(response);
 
+      // have shows equal the response (which is equal to the data value only) and clear the userInput
       this.setState({
-        shows: response
+        shows: response,
+        userInput: ''
       })
     })
-  } // end of componentDidMount()
-
+  } // end of getTvData
 
 
 
@@ -58,10 +61,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>hello</h1>
+        <form action="submit">
+        <label htmlFor="tvShowInput" className="visuallyHidden">Enter the name of a TV Show to find out more information about it.</label>
+          <input type="text" id="tvShowInput" placeholder="Enter a TV Show" onChange={this.handleChange} value={this.state.userInput} required/>
+          <button onClick={this.getTvData}>Click here</button>
+        </form>
       </div>
     );
   } // end of render
-} // end of class App extending to Component
+} // end of class App extending Component
 
 export default App;
