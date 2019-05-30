@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './App.css';
+import TvShowInfo from './Components/TvShowInfo.js';
 
 
 class App extends Component {
@@ -9,7 +10,12 @@ class App extends Component {
     super();
     // Creates an initial state with an empty array for the shows
     this.state = {
-      shows: [],
+      img: '',
+      name: '',
+      genre: [],
+      showStart: '',
+      bio: [],
+      rating: '',
       userInput: '',
     }
   } // end of constructor
@@ -29,7 +35,7 @@ class App extends Component {
   // on click, do the following:
   getTvData = (event) => {
     event.preventDefault();
-    console.log(this.state.userInput);
+    // console.log(this.state.userInput);
 
     // create variable to save URL info
     const url = `http://api.tvmaze.com/singlesearch/shows?q=${this.state.userInput}`;
@@ -44,11 +50,18 @@ class App extends Component {
     }).then(response => {
       // have the response only show the data value
       response = response.data
-      console.log(response);
+
+      // removing the element tags from the API's summary so it doesn't show for user
+      const cleanSummary = response.summary.replace(/<[^>]+>/g, ' ');
 
       // have shows equal the response (which is equal to the data value only) and clear the userInput
       this.setState({
-        shows: response,
+        img: response.image.original,
+        name: response.name,
+        genre: response.genres,
+        showStart: response.premiered,
+        bio: cleanSummary,
+        rating: response.rating.average,
         userInput: ''
       })
     })
@@ -61,14 +74,28 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div>
+          <h1>TV Shows</h1>
+          <h2>Enter your favourite TV Show title to learn more about it.</h2>
+        </div>
+      
         <form action="submit">
-        <label htmlFor="tvShowInput" className="visuallyHidden">Enter the name of a TV Show to find out more information about it.</label>
+          <label htmlFor="tvShowInput" className="visuallyHidden">Enter the name of a TV Show to find out more information about it.</label>
           <input type="text" id="tvShowInput" placeholder="Enter a TV Show" onChange={this.handleChange} value={this.state.userInput} required/>
           <button onClick={this.getTvData}>Click here</button>
         </form>
+
+        <TvShowInfo
+          img={this.state.img}
+          name={this.state.name}
+          genre={this.state.genre}
+          showStart={this.state.showStart}
+          bio={this.state.bio}
+          rating={this.state.rating}
+        />
       </div>
     );
   } // end of render
 } // end of class App extending Component
 
-export default App;
+export default App
