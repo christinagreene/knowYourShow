@@ -104,16 +104,16 @@ class App extends Component {
   // this is what will be built to the page:
   render() {
     return (
-      <div className="App">
+      <div className="App wrapper">
         <header>
-          <h1>Know Your Show</h1>
+          <h1>Know Your Show!</h1>
           <h2>Enter your favourite TV Show title to learn more about it.</h2>
         </header>
       
         <form action="submit">
-          <label htmlFor="tvShowInput" className="visuallyHidden">Enter TV Show name.</label>
-          <input type="text" id="tvShowInput" placeholder="Enter a TV Show" onChange={this.handleChange} value={this.state.userInput} required/>
-          <button onClick={this.getTvData}>Click here</button>
+          <label htmlFor="tvShowInput" className="visuallyHidden">Enter a TV Show name.</label>
+          <input type="text" id="tvShowInput" placeholder="Enter a title..." onChange={this.handleChange} value={this.state.userInput} required/>
+          <button onClick={this.getTvData}>Tell me more about my show!</button>
         </form>
 
         <TvShowInfo
@@ -126,6 +126,10 @@ class App extends Component {
 
           cast={this.state.cast}
         />
+
+        <footer>
+          <p>Created by Christina Greene. Data sourced from <a href="https://www.tzmaze.com">TVmaze</a>.</p>
+        </footer>
       </div>
     ); // end of return
   } // end of render

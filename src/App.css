@@ -14,10 +14,11 @@ html {
 }
 
 body {
-  background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('./assets/staticBackground.jpg');
+  background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('./assets/staticBackground.jpg');
   font-family: 'EB Garamond', serif;
-  font-size: 2rem;
+  font-size: 2.1rem;
   color: black;
+  text-align: center;
 }
 
 .wrapper {
@@ -31,22 +32,125 @@ img {
   display: block;
 }
 
+h1,
+input,
+button {
+  font-family: 'Quicksand', sans-serif;
 
-.App {
-  text-align: center;
 }
 
+
+/* header Styles */
 header {
   font-weight: 700;
 }
 
 h1 {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 10rem;
+  font-size: 13rem;
   text-transform: uppercase;
-  text-shadow: 0 0 20px #000;
+  text-shadow: 0 0 40px #000;
+  margin: 60px 0 10px 0;
+}
+
+header h2 {
+  font-size: 3.5rem;
+  margin: 15px 0 20px 0;
 }
 
 
+/* form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+}
+
+input,
+button {
+  width: 50%;
+  text-align: center;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 10px;
+}
+
+input {
+  border: 2px solid #9e716b;
+}
+
+input::placeholder {
+  color: #9e716b;
+  opacity: 1;
+}
+
+button {
+  /* blast-off bronze */
+  background: #9e716b;
+  border: 2px solid black;
+}
+
+button:hover,
+button:focus {
+  /* melon */
+  background: #fbc2b5;
+}
+
+button:active {
+  /* green */
+  background: #afe0ce;
+}
+
+button:focus {
+  /* blast-off bronze */
+  border: 2px dashed #9e716b;
+}
 
 
+/* results section (from TvShowInfo component) */
+.resultsInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.imageContainer {
+  width: 30%;
+}
+
+.showInformation {
+  width: calc(70% - 50px);
+  margin-left: 50px;
+}
+
+.showTitle {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.showGenre {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  display: inline-block;
+  margin: 5px 0;
+  padding: 0 5px;
+}
+
+.cast {
+  margin: 40px 0;
+}
+.castInformation {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: inline-block;
+  width: calc(25% - 20px);
+  margin: 0 10px;
+}
+
+/* footer styles */
+footer p {
+  margin: 0;
+}
