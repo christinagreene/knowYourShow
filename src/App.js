@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import './App.css';
 import TvShowInfo from './Components/TvShowInfo.js';
 
@@ -8,9 +9,9 @@ import TvShowInfo from './Components/TvShowInfo.js';
 
 
 class App extends Component {
-  // allows for content to be put on the page
   constructor() {
     super();
+
     // Creates an initial state with an empty array for the shows
     this.state = {
       img: '',
@@ -21,30 +22,29 @@ class App extends Component {
       rating: '',
       showId: '',
       userInput: '',
-      cast: []
-    }
+      cast: [],
+      error: null
+    } // end of this.state
   } // end of constructor
 
-  // once everything is mounted to the page, the following will occur:
-  componentDidMount() {
-    
-  } // end of componentDidMount()
-
+  // handles change of text input field
   handleChange = (event) => {
     this.setState({
       userInput: event.target.value,
     })
   } // end of handleChange
 
+
   // on click, do the following:
   getTvData = (event) => {
+
     // prevent default function of form
     event.preventDefault();
 
     // create variable to save URL info
     const url = `http://api.tvmaze.com/singlesearch/shows?q=${this.state.userInput}`;
 
-    // making the API call to the site
+    // making the first API call to gather general show info
     axios({
       method: 'GET',
       url: url,
@@ -75,9 +75,15 @@ class App extends Component {
           this.getCastData();
       }) // end of this.setState
     }) // end of .then method
+
+    // ERROR HANDLING FOR A BLANK TEXT FIELD OR TEXT THAT DOESN'T MATCH A SHOW NAME FROM API
+    .catch((error) => {
+      Swal.fire("Please enter a valid TV Show title.");
+    })
   } // end of getTvData
 
 
+  // Second call to API to gather Cast name and photos
   getCastData = () => {
     const castUrl = `http://api.tvmaze.com/shows/${this.state.showId}/cast`;
 
@@ -99,10 +105,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
+        <header>
           <h1>Know Your Show</h1>
           <h2>Enter your favourite TV Show title to learn more about it.</h2>
-        </div>
+        </header>
       
         <form action="submit">
           <label htmlFor="tvShowInput" className="visuallyHidden">Enter TV Show name.</label>
@@ -121,7 +127,7 @@ class App extends Component {
           cast={this.state.cast}
         />
       </div>
-    );
+    ); // end of return
   } // end of render
 } // end of class App extending Component
 

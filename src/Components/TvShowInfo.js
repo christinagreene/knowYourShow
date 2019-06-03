@@ -9,7 +9,7 @@ class TvShowInfo extends Component {
          <div>
             <div className="resultsInfo">
                <div className="imageContainer">
-                  <img src={this.props.img} alt=""/>
+                  <img src={this.props.img} alt="" role="presentation"/>
                </div>
                <div className="showInformation">
                   <h2>{this.props.name}</h2>
@@ -17,36 +17,21 @@ class TvShowInfo extends Component {
                      return <h3 key={i}>{item}</h3>
                   })}
 
-                  {/* if there is a start date, show this sentence. if not, don't show anything (same parameters for bio and rating) */}
+                  {/* if there is a start date or a rating, show the info. if not, don't show anything */}
                   <p>{this.props.showStart ? `First Aired: ${this.props.showStart}` : null}</p>
                   <p>{this.props.bio}</p>
                   <p>{this.props.rating ? `Average rating: ${this.props.rating} / 10` : null}</p>
                </div>
             </div>
 
-            {this.props.cast.map((member) => {
+            {this.props.cast.map((member, cast) => {
                return (
-                  <div>
-                     <img src={member.person.image.medium} alt=""/>
+                  <div key={cast}>
+                     <img src={member.person.image.medium} alt="" role="presentation"/>
                      <p>{member.person.name}</p>
                   </div>
                )
             })}
-
-
-
-            {/* <div className="castInfo">
-               <div className="castActorImage">
-                  {this.props.cast.map((image, id) => {
-                  return <img key={id} src={cast.image.medium} alt="" />
-               })}
-               </div>
-               <div className="castActorName">
-                  {this.props.cast.map((name, actor) => {
-                     return <p key={actor}>{cast.name}</p>
-                  })}
-               </div>
-            </div> */}
          </div>
       )
    }
