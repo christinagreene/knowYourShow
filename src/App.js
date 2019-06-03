@@ -55,7 +55,6 @@ class App extends Component {
     }).then(response => {
       // have the response only show the data value
       response = response.data
-      console.log(response)
 
       // removing the element tags from the API's summary so it doesn't show for user
       const cleanSummary = response.summary.replace(/<[^>]+>/g, ' ');
@@ -94,7 +93,6 @@ class App extends Component {
       url: castUrl,
       dataResponse: 'json',
     }).then(responseCast => {
-      console.log(responseCast.data)
 
       this.setState({
         cast: responseCast.data,
