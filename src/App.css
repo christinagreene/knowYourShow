@@ -161,13 +161,7 @@ footer p {
 }
 
 
-
 /* responsive media queries */
-
-/* Portrait tablet and small desktops */
-@media (max-width: 940px) {
-
-}
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 768px) {
@@ -235,15 +229,10 @@ footer p {
     margin: 0 5px;
   }
 }
-/* Landscape phones and down */
+/* Landscape phones and down - to smallest size of 320px */
 @media (max-width: 480px) {
 
   header h2 {
     font-size: 2.5rem;
   }
-}
-
-/* Smallest screen sizes (smallest = 320px) */
-@media (max-width: 360px) {
-
 }

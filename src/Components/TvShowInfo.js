@@ -28,6 +28,7 @@ class TvShowInfo extends Component {
             </div>
 
             <div className="cast">
+               {/* only add h2 if there is content on the cast on screen */}
                {this.props.cast.length != 0 && <h2>Top Billed Cast</h2>}
                {this.props.cast.map((member, cast) => {
                   return (
