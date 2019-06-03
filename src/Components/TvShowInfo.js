@@ -4,7 +4,7 @@ class TvShowInfo extends Component {
 
    render(){
       return (
-         <div>
+         <div className="resultsComponent">
             <div className="resultsInfo">
                <div className="imageContainer">
                   <img src={this.props.img} alt="" role="presentation"/>
@@ -28,13 +28,16 @@ class TvShowInfo extends Component {
             </div>
 
             <div className="cast">
+               {this.props.cast.length != 0 && <h2>Top Billed Cast</h2>}
                {this.props.cast.map((member, cast) => {
                   return (
                      <div key={cast} className="castInformation">
-                        {/* <h2>Top Billed Cast</h2> */}
-
+                        <div className="castImage">
                            <img src={member.person.image.medium} alt="" role="presentation"/>
+                        </div>
+                        <div className="castName">
                            <p>{member.person.name}</p>
+                        </div>
                      </div>
                   )
                })}

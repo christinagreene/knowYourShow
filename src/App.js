@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import animateScrollTo from 'animated-scroll-to';
 import './App.css';
 import TvShowInfo from './Components/TvShowInfo.js';
 
@@ -35,7 +36,7 @@ class App extends Component {
   } // end of handleChange
 
 
-  // on click, do the following:
+  // on submit of the form/button, do the following:
   getTvData = (event) => {
 
     // prevent default function of form
@@ -80,6 +81,7 @@ class App extends Component {
     .catch((error) => {
       Swal.fire("Please enter a valid TV Show title.");
     })
+
   } // end of getTvData
 
 
@@ -98,8 +100,12 @@ class App extends Component {
         cast: responseCast.data,
       })
     })
-  } // end of getCastData
 
+    // Smooth scroll to results
+    animateScrollTo(document.querySelector('.resultsComponent'));
+    
+  } // end of getCastData
+  
 
   // this is what will be built to the page:
   render() {
