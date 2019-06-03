@@ -43,7 +43,7 @@ class App extends Component {
     event.preventDefault();
 
     // create variable to save URL info
-    const url = `http://api.tvmaze.com/singlesearch/shows?q=${this.state.userInput}`;
+    const url = `https://api.tvmaze.com/singlesearch/shows?q=${this.state.userInput}`;
 
     // making the first API call to gather general show info
     axios({
@@ -87,7 +87,7 @@ class App extends Component {
 
   // Second call to API to gather Cast name and photos
   getCastData = () => {
-    const castUrl = `http://api.tvmaze.com/shows/${this.state.showId}/cast`;
+    const castUrl = `https://api.tvmaze.com/shows/${this.state.showId}/cast`;
 
     axios({
       method: 'GET',
