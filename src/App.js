@@ -130,10 +130,7 @@ class App extends Component {
 
           cast={this.state.cast}
         />
-
-        <footer>
-          <p>Created by Christina Greene. Data sourced from <a href="https://www.tzmaze.com">TVmaze</a>.</p>
-        </footer>
+        {/* Footer included when content shows in TvShowInfo component */}
       </div>
     ); // end of return
   } // end of render

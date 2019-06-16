@@ -10,10 +10,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 /* base styles  */
 html {
   font-size: 62.5%;
-  scroll-behavior: smooth;
 }
 
 body {
+  scroll-behavior: smooth;
   background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('./assets/staticBackground.jpg');
   font-family: 'EB Garamond', serif;
   font-size: 2.1rem;
@@ -111,7 +111,6 @@ button:focus {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 50px 0;
 }
 
 .imageContainer {
@@ -119,12 +118,14 @@ button:focus {
 }
 
 .showInformation {
+  font-weight: 700;
   width: calc(70% - 50px);
   margin-left: 50px;
 }
 
 .showTitle {
   font-size: 4rem;
+  text-decoration: underline;
   margin: 0;
 }
 
@@ -158,6 +159,7 @@ button:focus {
 /* footer styles */
 footer p {
   margin: 0;
+  font-weight: 700;
 }
 
 

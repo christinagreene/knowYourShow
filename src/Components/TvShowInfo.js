@@ -29,7 +29,7 @@ class TvShowInfo extends Component {
 
             <div className="cast">
                {/* only add h2 if there is content on the cast on screen */}
-               {this.props.cast.length != 0 && <h2>Top Billed Cast</h2>}
+               {this.props.cast.length !== 0 && <h2>Top Billed Cast</h2>}
                {this.props.cast.map((member, cast) => {
                   return (
                      <div key={cast} className="castInformation">
@@ -43,6 +43,9 @@ class TvShowInfo extends Component {
                   )
                })}
             </div>
+            {this.props.cast.length !== 0 && <footer>
+               <p>Created by Christina Greene. Data sourced from <a href="https://www.tzmaze.com">TVmaze</a>.</p>
+            </footer>}
          </div>
       )
    }
