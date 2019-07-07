@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/christinaGreeneProject5/static/css/main.c057e114.chunk.css",
-    "main.js": "/christinaGreeneProject5/static/js/main.6100fd4b.chunk.js",
-    "main.js.map": "/christinaGreeneProject5/static/js/main.6100fd4b.chunk.js.map",
-    "runtime~main.js": "/christinaGreeneProject5/static/js/runtime~main.bbf9b624.js",
-    "runtime~main.js.map": "/christinaGreeneProject5/static/js/runtime~main.bbf9b624.js.map",
-    "static/js/2.7a0a1757.chunk.js": "/christinaGreeneProject5/static/js/2.7a0a1757.chunk.js",
-    "static/js/2.7a0a1757.chunk.js.map": "/christinaGreeneProject5/static/js/2.7a0a1757.chunk.js.map",
-    "index.html": "/christinaGreeneProject5/index.html",
-    "precache-manifest.a7b5375f022fe71c260c3b67dc090104.js": "/christinaGreeneProject5/precache-manifest.a7b5375f022fe71c260c3b67dc090104.js",
-    "service-worker.js": "/christinaGreeneProject5/service-worker.js",
-    "static/css/main.c057e114.chunk.css.map": "/christinaGreeneProject5/static/css/main.c057e114.chunk.css.map",
-    "static/media/App.css": "/christinaGreeneProject5/static/media/staticBackground.505111cb.jpg"
+    "main.css": "/knowYourShow/static/css/main.a50195f9.chunk.css",
+    "main.js": "/knowYourShow/static/js/main.6afb0846.chunk.js",
+    "main.js.map": "/knowYourShow/static/js/main.6afb0846.chunk.js.map",
+    "runtime~main.js": "/knowYourShow/static/js/runtime~main.52527389.js",
+    "runtime~main.js.map": "/knowYourShow/static/js/runtime~main.52527389.js.map",
+    "static/js/2.7a0a1757.chunk.js": "/knowYourShow/static/js/2.7a0a1757.chunk.js",
+    "static/js/2.7a0a1757.chunk.js.map": "/knowYourShow/static/js/2.7a0a1757.chunk.js.map",
+    "index.html": "/knowYourShow/index.html",
+    "precache-manifest.477e1a783aa95ef312b7a545b4728788.js": "/knowYourShow/precache-manifest.477e1a783aa95ef312b7a545b4728788.js",
+    "service-worker.js": "/knowYourShow/service-worker.js",
+    "static/css/main.a50195f9.chunk.css.map": "/knowYourShow/static/css/main.a50195f9.chunk.css.map",
+    "static/media/App.css": "/knowYourShow/static/media/staticBackground.505111cb.jpg"
   }
 }
